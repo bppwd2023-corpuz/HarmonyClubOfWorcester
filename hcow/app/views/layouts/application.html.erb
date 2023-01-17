@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hcow</title>
+    <title>Harmony Club Of Worcester</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,11 +11,11 @@
 
   <body class="bg-primary">
     <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-danger p-4">
-        <h5 class="text-white h4"><%= link_to "Home", "static_page_home_path" %></h5>
-        <h5 class="text-white h4"><%= link_to "About Us", "static_page_about_path" %></h5>
-        <h5 class="text-white h4"><%= link_to "Contact Us", "static_page_contact_path" %></h5>
-      </div>
+        <div class="bg-danger text-light p-4">
+           <h5 class="text-white h4"><%= link_to "Home", "static_page_home_path", class: "text-white" %></h5>
+           <h5 class="text-white h4"><%= link_to "About Us", "static_page_about_path", class: "text-white" %></h5>
+           <h5 class="text-white h4"><%= link_to "Contact Us", "static_page_contact_path", class: "text-white" %></h5>
+        </div>
     </div>
     <nav class="navbar navbar-danger bg-danger">
       <h1 class="text-white">HARMONY CLUB OF WORCESTER</h1>
