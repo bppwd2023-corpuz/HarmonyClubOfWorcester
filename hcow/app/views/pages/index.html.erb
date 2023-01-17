@@ -6,9 +6,9 @@
   <% @pages.each do |page| %>
     <%= render page %>
     <p>
-      <%= link_to "Show this page", page %>
+      <%= link_to "Show this page", pages %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New page", new_page_path %>
+<%= link_to "New page", url:"pages/new" %>
