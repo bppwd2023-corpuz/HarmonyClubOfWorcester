@@ -10,43 +10,56 @@
       </ul>
     </div>
   <% end %>
+  <div data-controller="page">
+    <div>
+      <%= form.label :page_type, style: "display: block" %>
+      <%= form.select :page_type,
+        ["Basic Page", "External URL", "Internal URL", "PDF"],
+        {},
+        data: {
+          action: "change->page#changer",
+          "page-target": "pagetype"
+        }
+      %>
+    </div>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
+    
 
-  <div>
-    <%= form.label :section_id, style: "display: block" %>
-    <%= form.number_field :section_id %>
-  </div>
+      <div id="title">
+        <%= form.label :title, style: "display: block" %>
+        <%= form.text_field :title %>
+      </div>
 
-  <div>
-    <%= form.label :position, style: "display: block" %>
-    <%= form.number_field :position %>
-  </div>
+      <div id="section">
+        <%= form.label :section_id, style: "display: block" %>
+        <%= form.number_field :section_id %>
+      </div>
 
-  <div>
-    <%= form.label :page_type, style: "display: block" %>
-    <%= form.text_field :page_type %>
-  </div>
+      <div id="position">
+        <%= form.label :position, style: "display: block" %>
+        <%= form.number_field :position %>
+      </div>
 
-  <div>
-    <%= form.label :destination, style: "display: block" %>
-    <%= form.text_field :destination %>
-  </div>
+      <div data-page-target="page" id="destination" class="visually-hidden">
+        <%= form.label :destination, style: "display: block" %>
+        <%= form.text_field :destination %>
+      </div>
 
-  <div>
-    <%= form.label :visible, style: "display: block" %>
-    <%= form.check_box :visible %>
-  </div>
+      <div id="visible">
+        <%= form.label :visible, style: "display: block" %>
+        <%= form.check_box :visible %>
+      </div>
 
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_area :content %>
-  </div>
+      <div data-page-target="page" id="content">
+        <%= form.label :content, style: "display: block" %>
+        <%= form.text_area :content %>
+      </div>
 
-  <div>
-    <%= form.submit %>
+
+    <div>
+      <%= form.submit %>
+    </div>
+
+    
   </div>
 <% end %>

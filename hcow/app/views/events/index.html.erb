@@ -1,18 +1,39 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Events</h1>
+<h1>Featured Events</h1>
 
-<%= month_calendar do |date| %>
-  <div class="border border-dark rounded text-center">
-  	<%= date.day() %>
-	<div class="bg-secondary rounded text-center">
-		<% @events.each do |event| %>
-  			<% if(event.eventstart.to_date == date) %>
-				<%= event.title %>
-			<% end %>
+
+
+<div class="row">
+	<% @events.each do |event| %>
+  		<% if(event.featured) %>
+			<div class="col-3 border rounded p-3 m-3">
+				<div class="card-body">
+					<h5 class="card-title"><%= event.title %></h5>
+					<p class="card-text"><%= event.details %></p>
+					<%= link_to "Show this Event", event, class: "btn btn-primary" %>
+				</div>
+			</div>
 		<% end %>
-	</div>
-  </div>
-<% end %>
+	<% end %>
+</div>
+
+<div class="row">
+	<%= month_calendar do |date| %>
+		<div class="border border-dark rounded text-center calender-event p-3">
+			<%= date.day() %>
+			<div class="bg-secondary rounded text-center">
+				<% @events.each do |event| %>
+					<% if(event.eventstart.to_date == date) %>
+						<div class="badge text-wrap" style="width: 8rem;">
+							<%= event.title %>
+						</div>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+</div>
+
 
 <%= link_to "New event", new_event_path %>

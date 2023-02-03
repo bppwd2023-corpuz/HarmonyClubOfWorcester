@@ -21,6 +21,7 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
+    
     @event = Event.new(event_params)
 
     respond_to do |format|
@@ -32,6 +33,8 @@ class EventsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+
+    
   end
 
   # PATCH/PUT /events/1 or /events/1.json
@@ -65,6 +68,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :allday, :eventstart, :eventend, :occurence, :details)
+      params.require(:event).permit(:title, :allday, :eventstart, :eventend, :occurence, :details, :featured)
     end
 end

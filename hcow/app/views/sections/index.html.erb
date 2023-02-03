@@ -11,4 +11,6 @@
   <% end %>
 </div>
 
-<%= link_to "New section", new_section_path %>
+<% if current_user.role == "developer" %>
+  <%= link_to "New section", new_section_path %>
+<% end %>

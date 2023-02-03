@@ -22,7 +22,7 @@ class PagesController < ApplicationController
   # POST /pages or /pages.json
   def create
     @page = Page.new(page_params)
-
+    puts @page.inspect
     respond_to do |format|
       if @page.save
         format.html { redirect_to page_url(@page), notice: "Page was successfully created." }

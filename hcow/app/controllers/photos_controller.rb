@@ -21,7 +21,9 @@ class PhotosController < ApplicationController
 
   # POST /photos or /photos.json
   def create
-    @photo = Photo.new(photo_params)
+    @k = 'album_id'
+    @album = Album.where(id: photo_params[@k.to_sym])[0]
+    @photo = @album.photos.new(photo_params)
 
     respond_to do |format|
       if @photo.save
@@ -65,6 +67,6 @@ class PhotosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def photo_params
-      params.require(:photo).permit(:album_id, :title, :description)
+      params.require(:photo).permit(:album_id, :title, :imagelink, :description)
     end
 end

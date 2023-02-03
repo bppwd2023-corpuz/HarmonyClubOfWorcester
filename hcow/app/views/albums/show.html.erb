@@ -2,6 +2,37 @@
 
 <%= render @album %>
 
+<div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <% @album.photos.each do |photo| %>
+        <div class="col-4 ">
+          <button class="carousel-control-prev bg-dark rounded" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+        </div>
+
+        <div class="col-4 text-center">
+          <div class="carousel-item active">
+            <div class="" style="width: 100;">
+              <img src=<%= photo.imagelink %> class="rounded start-50" alt="..." height="500">
+              <h5 class="text-center"><%= photo.title %></h5>
+              <p class="text-center"><%= photo.description %></p>
+              <%= link_to "Show this photo", photo, class:"text-center btn btn-primary" %> 
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-4 bg-dark">
+          <button class="carousel-control-next bg-dark rounded" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+    <% end %>
+  </div>
+</div>
+
 <div>
   <%= link_to "Edit this album", edit_album_path(@album) %> |
   <%= link_to "Back to albums", albums_path %>
